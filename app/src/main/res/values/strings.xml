@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Midterm Project</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="_00_00_00">00:00:00</string>
+</resources>
