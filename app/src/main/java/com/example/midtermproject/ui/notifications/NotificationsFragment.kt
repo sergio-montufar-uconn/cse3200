@@ -34,7 +34,7 @@ class NotificationsFragment : Fragment() {
         binding.resetButton.setOnClickListener { timerViewModel.resetTimer() }
     }
 
-    private fun formatTime(seconds: Long): String {
+    fun formatTime(seconds: Long): String {
         val hours = seconds / 3600
         val minutes = (seconds % 3600) / 60
         val secs = seconds % 60
