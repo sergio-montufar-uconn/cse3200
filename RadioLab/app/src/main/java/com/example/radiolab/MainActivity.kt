@@ -20,7 +20,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var seekBar: SeekBar
     private lateinit var image: ImageView
 
-    private var urls = listOf("https://kptz.streamguys1.com/live-mp3","","","","")
+    private var urls = listOf("https://kptz.streamguys1.com/live-mp3",
+                              "http://stream.jam.fm/jamfm-bl/mp3-192/",
+                              "http://crystalout.surfernetwork.com:8001/WDRC-AM_MP3",
+                              "http://stream.rtlradio.de/rnb/mp3-192/",
+                              "http://hydra.cdnstream.com/1536_128")
     private var currentUrl = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,10 +49,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Station has stopped playing", Toast.LENGTH_LONG).show()
         }
 
-
         buttonNext.setOnClickListener {
-            mediaPlayer.setDataSource(getNextUrl())
-            image.setImageResource(currentUrl)
+            playRadioStation()
+            image.setImageResource(setImageForStation(currentUrl))
+            mediaPlayer.start()
+            Toast.makeText(this, "Selected next station", Toast.LENGTH_LONG).show()
         }
 
         seekBar.progress = 50 // this is the initial volume
@@ -69,6 +74,30 @@ class MainActivity : AppCompatActivity() {
         return urls[currentUrl]
     }
 
+    private fun playRadioStation() {
+        mediaPlayer?.apply {
+            if (!isPlaying) {
+                reset()
+                val urlString = getNextUrl()
+                setDataSource(urlString)
+                prepareAsync()
+            } else {
+                mediaPlayer.pause()
+            }
+        }
+    }
+
+    private fun setImageForStation(index: Int): Int {
+        return when (index) {
+            0 -> R.drawable.kptz_radio
+            1 -> R.drawable.jamfm_blacklabel
+            2 -> R.drawable.talkofconnecticut
+            3 -> R.drawable.music_icon
+            4 -> R.drawable.tuvidafm
+            else -> R.drawable.ic_launcher_background
+        }
+    }
+
     private fun setUpRadio() {
         mediaPlayer = MediaPlayer().apply {
             setAudioAttributes(
@@ -77,9 +106,8 @@ class MainActivity : AppCompatActivity() {
                     .setUsage(AudioAttributes.USAGE_MEDIA)
                     .build()
             )
-            setDataSource(urls[0])
-            prepare()
         }
     }
-    
+
+
 }
