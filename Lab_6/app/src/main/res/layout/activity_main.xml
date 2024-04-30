@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- Video View -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/videoPlayerView"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp" />
+
+
+    <LinearLayout
+        android:id="@+id/otherButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/videoPlayerView"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <!--Prev Video Button-->
+        <Button
+            android:id="@+id/prevVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Prev Video" />
+
+        <!--Play Video Button-->
+        <Button
+            android:id="@+id/playVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="Play Video" />
+
+        <!--Next Video Button-->
+        <Button
+            android:id="@+id/nextVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="Next Video" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/videoPlayerView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal">
+
+        <!--Previous Radio Button-->
+        <Button
+            android:id="@+id/prevRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="25dp"
+            android:layout_centerHorizontal="true"
+            android:text="Prev" />
+
+        <!--Play/Pause Radio Button-->
+        <Button
+            android:id="@+id/playPauseRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Play Radio" />
+
+        <!--Next Radio Button-->
+        <Button
+            android:id="@+id/nextRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Next" />
+
+    </LinearLayout>
+
+    <!--Radio Volume Text-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="435dp"
+        android:layout_marginLeft="155dp"
+        android:text="Volume:"
+        android:textSize="30dp"
+        android:textColor="@color/black" />
+
+    <!--Radio Volume Bar-->
+    <SeekBar
+        android:id="@+id/volumeControl"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="475dp"
+        android:layout_marginLeft="30dp"
+        android:max="100"
+        android:progress="25" />
+
+</RelativeLayout>
+
+
